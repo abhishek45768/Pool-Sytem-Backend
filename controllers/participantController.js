@@ -94,7 +94,7 @@ export const getParticipantById = async (req, res) => {
   try {
     const participant = await Participant.findById(req.params.id);
     if (!participant) {
-      return res.status(404).json({ message: "Participant not found" });
+      return res.status(200).json({ message: "Participant not found or kicked out", kick_out:true});
     }
     res.json(participant);
   } catch (error) {
